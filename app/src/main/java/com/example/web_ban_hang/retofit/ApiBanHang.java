@@ -1,5 +1,6 @@
 package com.example.web_ban_hang.retofit;
 
+import com.example.web_ban_hang.model.DonHangModel;
 import com.example.web_ban_hang.model.LoaiSpModel;
 import com.example.web_ban_hang.model.SanPhamMoiModel;
 import com.example.web_ban_hang.model.User;
@@ -57,5 +58,11 @@ public interface ApiBanHang {
             @Field("diachi") String diachi,
             @Field("soluong") int soluong,
             @Field("chitiet") String chitiet
+    );
+
+    @POST("xemdonhang.php")
+    @FormUrlEncoded
+    Observable<DonHangModel> xemDonHang(
+            @Field("iduser") int id
     );
 }

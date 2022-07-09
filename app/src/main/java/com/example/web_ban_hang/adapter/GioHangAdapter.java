@@ -89,11 +89,12 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.MyViewHo
                         int soluongmoi = gioHangList.get(adapterPosition).getSoluong() + 1;
                         gioHangList.get(adapterPosition).setSoluong(soluongmoi);
                     }
+                    holder.item_giohang_soluong.setText(gioHangList.get(adapterPosition).getSoluong()+ " ");
+                    long gia = gioHangList.get(adapterPosition).getSoluong() * gioHangList.get(adapterPosition).getGiasp();
+                    holder.item_giohang_giasp2.setText(decimalFormat.format(gia));
+                    EventBus.getDefault().postSticky(new TinhTongEvent());
                 }
-                holder.item_giohang_soluong.setText(gioHangList.get(adapterPosition).getSoluong()+ " ");
-                long gia = gioHangList.get(adapterPosition).getSoluong() * gioHangList.get(adapterPosition).getGiasp();
-                holder.item_giohang_giasp2.setText(decimalFormat.format(gia));
-                EventBus.getDefault().postSticky(new TinhTongEvent());
+
             }
         });
     }
