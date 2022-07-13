@@ -34,15 +34,12 @@ public class XemDonActivity extends AppCompatActivity {
         getOrder();
 
 
-
-
-
-
     }
 
     private void getOrder() {
         compositeDisposable.add(apiBanHang.xemDonHang(Utils.user_current.getId())
-                .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         donHangModel -> {
                             DonHangAdapter adapter = new DonHangAdapter(getApplicationContext(), donHangModel.getResult());

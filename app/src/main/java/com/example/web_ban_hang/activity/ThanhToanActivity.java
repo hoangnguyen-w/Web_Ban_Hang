@@ -47,8 +47,8 @@ public class ThanhToanActivity extends AppCompatActivity {
 
     private void countItem() {
         totalItem = 0;
-        for(int i = 0; i < Utils.manggiohang.size(); i++){
-            totalItem = totalItem + Utils.manggiohang.get(i).getSoluong();
+        for(int i = 0; i < Utils.mangmuahang.size(); i++){
+            totalItem = totalItem + Utils.mangmuahang.get(i).getSoluong();
         }
     }
 
@@ -67,7 +67,6 @@ public class ThanhToanActivity extends AppCompatActivity {
         txtemail.setText(Utils.user_current.getEmail());
         txtsdt.setText(Utils.user_current.getMobile());
 
-
         btnDatHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,20 +78,20 @@ public class ThanhToanActivity extends AppCompatActivity {
                     String str_email = Utils.user_current.getEmail();
                     String str_sdt = Utils.user_current.getMobile();
                     int id = Utils.user_current.getId();
-
-                    Log.d("test", new Gson().toJson(Utils.manggiohang));
-                    compositeDisposable.add(apiBanHang.createOrder(str_email, str_sdt,String.valueOf(tongtien), id, str_address, totalItem, new Gson().toJson(Utils.manggiohang))
+                    Log.d("test", new Gson().toJson(Utils.mangmuahang));
+                    compositeDisposable.add(apiBanHang.createOrder(str_email, str_sdt,String.valueOf(tongtien), id, str_address, totalItem, new Gson().toJson(Utils.mangmuahang))
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(
                                     userModel -> {
                                         Toast.makeText(getApplicationContext(), "Thành Công", Toast.LENGTH_SHORT).show();
+                                        Utils.mangmuahang.clear();
                                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                         startActivity(intent);
                                         finish();
                                     },
                                     throwable -> {
-                                        Toast.makeText(getApplicationContext(), throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(),"Fail:" + throwable.getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                             )
                     );

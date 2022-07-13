@@ -72,7 +72,7 @@ public class DangNhapActivity extends AppCompatActivity {
                 .subscribe(
                         userModel -> {
                             if(userModel.isSuccess()){
-                                isLogin = true;
+                                isLogin = false;
                                 Paper.book().write("isLogin", isLogin);
 
                                 Utils.user_current = userModel.getResult().get(0);

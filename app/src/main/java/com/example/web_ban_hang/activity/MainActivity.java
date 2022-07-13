@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
     SanPhamMoiAdapter spAdapter;
     NotificationBadge badge;
     FrameLayout frameLayout;
+    ImageView imgsearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,9 +98,13 @@ public class MainActivity extends AppCompatActivity {
                         laptop.putExtra("loai", 2);
                         startActivity(laptop);
                         break;
-                    case 5:
+                    case 3:
                         Intent donhang = new Intent(getApplicationContext(), XemDonActivity.class);
                         startActivity(donhang);
+                        break;
+                    case 4:
+                        Intent logout = new Intent(getApplicationContext(), DangNhapActivity.class);
+                        startActivity(logout);
                         break;
                 }
             }
@@ -174,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void anhxa() {
+        imgsearch = (ImageView) findViewById(R.id.imgsearch);
         toolbar = (Toolbar) findViewById(R.id.toolbarmanhinhchinh);
         viewFlipper = (ViewFlipper) findViewById(R.id.viewflipter);
         recyclerViewManHinhChinh = (RecyclerView) findViewById(R.id.recycleview);
@@ -203,6 +209,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent gioHang = new Intent(getApplicationContext(), GioHangActivity.class);
                 startActivity(gioHang);
+            }
+        });
+
+        imgsearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                startActivity(intent);
             }
         });
     }

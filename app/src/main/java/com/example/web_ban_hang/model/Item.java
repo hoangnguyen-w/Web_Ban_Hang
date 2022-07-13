@@ -4,7 +4,7 @@ public class Item {
     int idsp;
     String tensp;
     int soluong;
-    String image;
+    String hinhanh;
 
     public int getSoluong() {
         return soluong;
@@ -14,12 +14,12 @@ public class Item {
         this.soluong = soluong;
     }
 
-    public String getImage() {
-        return image;
+    public String getHinhanh() {
+        return hinhanh;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setHinhanh(String hinhanh) {
+        this.hinhanh = hinhanh;
     }
 
     public int getIdsp() {
