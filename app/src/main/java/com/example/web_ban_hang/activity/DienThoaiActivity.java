@@ -88,7 +88,7 @@ public class DienThoaiActivity extends AppCompatActivity {
                 //remove null
                 sanPhamMoiList.remove(sanPhamMoiList.size() - 1);
                 adapterDt.notifyItemRemoved(sanPhamMoiList.size());
-                page += 1;
+                page = page + 1;
                 getData(page);
                 adapterDt.notifyDataSetChanged();
                 isLoading = true;

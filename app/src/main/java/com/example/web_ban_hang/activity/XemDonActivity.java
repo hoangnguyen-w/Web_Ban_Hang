@@ -66,7 +66,7 @@ public class XemDonActivity extends AppCompatActivity {
     private void initView() {
         apiBanHang = RetrofitClient.getInstance(Utils.BASE_URL).create(ApiBanHang.class);
         reDonHang = findViewById(R.id.recycleview_donhang);
-        toolbar = findViewById(R.id.toobar);
+        toolbar = findViewById(R.id.toobarr);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         reDonHang.setLayoutManager(layoutManager);
     }

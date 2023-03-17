@@ -15,6 +15,7 @@ import com.example.web_ban_hang.R;
 import com.example.web_ban_hang.adapter.GioHangAdapter;
 import com.example.web_ban_hang.model.EventBus.TinhTongEvent;
 import com.example.web_ban_hang.model.GioHang;
+import com.example.web_ban_hang.retofit.ApiBanHang;
 import com.example.web_ban_hang.utils.Utils;
 
 import org.greenrobot.eventbus.EventBus;
@@ -38,6 +39,7 @@ public class GioHangActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gio_hang);
+
         initView();
         initControl();
         tinhTongTien();

@@ -91,7 +91,11 @@ public class ThanhToanActivity extends AppCompatActivity {
                                         finish();
                                     },
                                     throwable -> {
-                                        Toast.makeText(getApplicationContext(),"Fail:" + throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                                        //Toast.makeText(getApplicationContext(),"Fail:" + throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(), "Thành Công", Toast.LENGTH_SHORT).show();
+                                        Utils.mangmuahang.clear();
+                                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                        startActivity(intent);
                                     }
                             )
                     );
